@@ -1,0 +1,24 @@
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra --strict-markers --alluredir=allure-results --clean-alluredir"
+markers = [
+    "smoke: быстрые проверки основных позитивных сценариев",
+    "negative: негативные сценарии",
+    "boundary: граничные значения и корнер-кейсы",
+    "security: авторизация, доступ, инъекции",
+    "nonfunctional: время ответа, формат, параллельность",
+    "e2e: сквозные сценарии",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
